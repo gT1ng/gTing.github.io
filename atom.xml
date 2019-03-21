@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>gTing&#39;s blog</title>
+  
+  <subtitle>2018 on the way</subtitle>
+  <link href="/gTing.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://gt1ng.github.io/gTing.github.io/"/>
+  <updated>2018-06-27T02:19:46.919Z</updated>
+  <id>https://gt1ng.github.io/gTing.github.io/</id>
+  
+  <author>
+    <name>gTing</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://gt1ng.github.io/gTing.github.io/2019/03/21/hello-world/"/>
+    <id>https://gt1ng.github.io/gTing.github.io/2019/03/21/hello-world/</id>
+    <published>2019-03-21T05:26:30.010Z</published>
+    <updated>2018-06-27T02:19:46.919Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于招聘信息</title>
+    <link href="https://gt1ng.github.io/gTing.github.io/2018/07/01/%E5%85%B3%E4%BA%8E%E6%8B%9B%E8%81%98%E4%BF%A1%E6%81%AF/"/>
+    <id>https://gt1ng.github.io/gTing.github.io/2018/07/01/关于招聘信息/</id>
+    <published>2018-07-01T01:29:51.000Z</published>
+    <updated>2018-07-01T07:36:48.404Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近一直再看一些公司招聘前端的信息，</p><ul><li>1.兼容市面PC和移动主流浏览器</li></ul><p>最基本的不同浏览器CSS3前缀</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-webkit-　　　　　　chrome、safari</span><br><span class="line">-moz-　　　　　　　 firefox</span><br><span class="line">-ms-               IE</span><br><span class="line">-o-                opera</span><br></pre></td></tr></table></figure><ul><li>2.理解w3c标准</li></ul><blockquote><p>w3c标准包括多个方面，官方是从应用角度分的。如果从WEB技术角度，可以分为三个方面的标准：结构、表现、行为。<br>结构：主要指(X)HTML标准，包括各种标签的名字、属性、语义及其他相关标准。<br>表现：主要指CSS，包括各种定位、颜色、大小等方面的标准。<br>行为：主要指Javascript，其实主要由ECMA国际制定的标准，但由于在万维网上广泛应用，开发人员也要关注。Javascript的词法、表达式、语句等方面也有一系列的标准。 Javascript没有像Java JDK那样的现成二进制文件，只有文档标准，具体的实现交给了各浏览器，所以在开发过程中，各浏览器的兼容性问题会是一个问题，我们在处理的时候可以遵循鸭式辨型原则去处理。</p></blockquote><ul><li>3.对表现与数据分离、web语义化、提升用户体验有所了解</li></ul><blockquote><p>数据分离：理解MVC<br>web语义化：Web语义化是指使用语义恰当的标签，使页面有良好的结构，页面元素有含义，能够让人和搜索引擎都容易理解</p></blockquote><ul><li>4.对前端工程化与模块化开发有一定了解</li></ul><blockquote><p>模块化中的模块一般指的是Javascript模块，比如一个用来格式化时间的模块。<br>组件则包含了template、style和script，而它的Script可以由各种模块组成。比如一个显示时间的组件会调用上面的那个格式化时间的模块。（vue）</p></blockquote><ul><li>5.ajax与后端进行api对接交互</li></ul><p>就是前后端用ajax进行数据交互时后端给前端提供的接口，一般常用格式有</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">   url: <span class="string">"你的webapi"</span>,</span><br><span class="line">   <span class="built_in">type</span>: <span class="string">"Get"</span>,</span><br><span class="line">   DATA&#123;&#125;,//这里面写你要传给后端的数据，不过GET方法一般不需要，直接读就可以了</span><br><span class="line">   success: <span class="keyword">function</span> (data) &#123;</span><br><span class="line">      //成功后的<span class="built_in">return</span>事件</span><br><span class="line">     &#125;</span><br><span class="line">   error: <span class="keyword">function</span> (data) &#123;</span><br><span class="line">     alert(<span class="string">"data"</span>);//请求错误后的报错事件(很重要，如果你报错了不知道哪儿要改的话这个可以帮助你，我个人感觉主要是500报错)</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure><p>其他可以参考<a href="https://www.jb51.net/article/113570.htm" target="_blank" rel="noopener">前端ajax的各种与后端交互的姿势</a></p><ul><li><p>6.数据绑定原理</p><p>目前接触的数据绑定大部分都是单向的，都是从数据库获取数据然后控制DOM展示数据，一旦数据发生变化，就去更新页面。<br>在学习vue的过程中接触到了双向绑定。</p><blockquote><p>使用v-model指令，实现视图和数据的双向绑定。<br>所谓双向绑定，指的是vue实例中的data与其渲染的DOM元素的内容保持一致，无论谁被改变，另一方会相应的更新为相同的数据。这是通过设置属性访问器实现的。<br>v-model主要用在表单的input输入框，完成视图和数据的双向绑定。<br>v-model只能用在input、select、textarea这些表单元素上。<br>双向绑定的缺点：不知道data什么时候变了，也不知道是谁变了，变化后也不会通知，当然可以watch来监听data的变化，但这复杂，还不如单向绑定。<br>在网上看到的一个比较好的关于数据绑定的解析：<a href="https://www.imooc.com/article/27631" target="_blank" rel="noopener">西安电话面试：谈谈Vue数据双向绑定原理，看看你的回答能打几分</a></p></blockquote></li></ul><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>这些内容只是根据我在这一年学习前端的过程中对前段一些知识的理解，再结合看到的一些招聘信息总结出来的现在企业对前端工程师的一些基础的要求，如果有错误的话可以QQ联系我指出。感谢。<br>参考：<br><a href="web标准与HTML语义化">web标准与HTML语义化</a><br><a href="https://www.cnblogs.com/dolphinX/p/3311588.html" target="_blank" rel="noopener">Web语义化</a><br><a href="https://blog.csdn.net/qq_19318067/article/details/53939230" target="_blank" rel="noopener">前端开发的模块化和组件化的定义，以及两者的关系？</a><br><a href="https://baike.baidu.com/item/W3C%E6%A0%87%E5%87%86/8367679" target="_blank" rel="noopener">W3C标准</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;最近一直再看一些公司招聘前端的信息，&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.兼容市面PC和移动主流浏览器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;最基本的不同浏
+      
+    
+    </summary>
+    
+    
+      <category term="招聘" scheme="https://gt1ng.github.io/gTing.github.io/tags/%E6%8B%9B%E8%81%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>github+hexo的踩坑之路</title>
+    <link href="https://gt1ng.github.io/gTing.github.io/2018/06/27/github%20page+hexo%E9%87%87%E5%9D%91%E8%BF%87%E7%A8%8B/"/>
+    <id>https://gt1ng.github.io/gTing.github.io/2018/06/27/github page+hexo采坑过程/</id>
+    <published>2018-06-27T02:25:01.000Z</published>
+    <updated>2018-06-27T08:32:21.093Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一直都很想有一个个人博客，但是无从下手。突然有一天看到了一篇教程——<a href="https://www.cnblogs.com/jackyroc/p/7681938.html" target="_blank" rel="noopener">我是如何利用Github Pages搭建起我的博客，细数一路的坑</a>,然后照着这篇教程开始动手。虽然教程中作者已经讲到了自己所踩的坑，但是不可避免的自己还是碰到了很多问题。</p><h2 id="踩过的坑"><a href="#踩过的坑" class="headerlink" title="踩过的坑"></a>踩过的坑</h2><h3 id="1-安装主题"><a href="#1-安装主题" class="headerlink" title="1. 安装主题"></a>1. 安装主题</h3><p>安装主题要在git bash中输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure><p>也可能是网络或者其他原因，一直失败，后来在github中又找到了next主题，看了说明找到了安装地址，这次成功了</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure><h3 id="2-部署到github"><a href="#2-部署到github" class="headerlink" title="2. 部署到github"></a>2. 部署到github</h3><p>在本地用打开页面，是正常显示的，输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure><p>部署到github上的时候，打卡页面样式无法显示，并且会在控制台报错找不到文件，后来看了同样采坑的人的建议，因为网站在二级目录中，要修改_config.yml文件中</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url: https://gt1ng.github.io/gTing.github.io/</span><br><span class="line">root: /gTing.github.io</span><br></pre></td></tr></table></figure><p>修改保存然后执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g //生成静态文件</span><br><span class="line">$ hexo d //部署到远端服务器</span><br></pre></td></tr></table></figure><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>这是第一次用自己搭建的博客，也是第一次用标记语言编辑，最后的最后，希望每天都能接触到新东西<br>标记语言参考——<a href="https://www.jianshu.com/p/1e402922ee32/" target="_blank" rel="noopener">Markdown——入门指南</a><br>next主题参考<a href="https://blog.csdn.net/qsdsn/article/details/77946677" target="_blank" rel="noopener">Hexo设置主题以及Next主题个性设置</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;一直都很想有一个个人博客，但是无从下手。突然有一天看到了一篇教程——&lt;a href=&quot;https://www.cnblogs.com/jac
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://gt1ng.github.io/gTing.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+</feed>
