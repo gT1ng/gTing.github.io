@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans（中文）">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/gTing.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/gTing.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/gTing.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/gTing.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/gTing.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/gTing.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/gTing.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/gTing.github.io/atom.xml" title="gTing's blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="第一次电话面试 1.JQuery的选择器(1)、基本选择器：#id，class,element,*(2)、层次选择器：parent &amp;gt; child，prev + next ，prev ~ siblings(3)、基本过滤器选择器：:first，:last ，:not ，:even ，:odd ，:eq ，:gt ，:lt(4)、内容过滤器选择器： :contains ，:empty ，:ha">
+<meta name="keywords" content="前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3.22面试题">
+<meta property="og:url" content="https://gt1ng.github.io/gTing.github.io/2019/03/22/3-22面试题/index.html">
+<meta property="og:site_name" content="gTing&#39;s blog">
+<meta property="og:description" content="第一次电话面试 1.JQuery的选择器(1)、基本选择器：#id，class,element,*(2)、层次选择器：parent &amp;gt; child，prev + next ，prev ~ siblings(3)、基本过滤器选择器：:first，:last ，:not ，:even ，:odd ，:eq ，:gt ，:lt(4)、内容过滤器选择器： :contains ，:empty ，:ha">
+<meta property="og:locale" content="zh-Hans（中文）">
+<meta property="og:updated_time" content="2019-03-24T04:51:32.048Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="3.22面试题">
+<meta name="twitter:description" content="第一次电话面试 1.JQuery的选择器(1)、基本选择器：#id，class,element,*(2)、层次选择器：parent &amp;gt; child，prev + next ，prev ~ siblings(3)、基本过滤器选择器：:first，:last ，:not ，:even ，:odd ，:eq ，:gt ，:lt(4)、内容过滤器选择器： :contains ，:empty ，:ha">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/gTing.github.io/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://gt1ng.github.io/gTing.github.io/2019/03/22/3-22面试题/"/>
+
+
+
+
+
+  <title>3.22面试题 | gTing's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans（中文）">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/gTing.github.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">gTing's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">2018 on the way</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/gTing.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/gTing.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gt1ng.github.io/gTing.github.io/gTing.github.io/2019/03/22/3-22面试题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gTing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://i01piccdn.sogoucdn.com/0eab9fda0dd2de62">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gTing's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">3.22面试题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-22T11:06:24+08:00">
+                2019-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>第一次电话面试</p>
+<h2 id="1-JQuery的选择器"><a href="#1-JQuery的选择器" class="headerlink" title="1.JQuery的选择器"></a>1.JQuery的选择器</h2><p>(1)、基本选择器：#id，class,element,*<br>(2)、层次选择器：parent &gt; child，prev + next ，prev ~ siblings<br>(3)、基本过滤器选择器：:first，:last ，:not ，:even ，:odd ，:eq ，:gt ，:lt<br>(4)、内容过滤器选择器： :contains ，:empty ，:has ，:parent<br>(5)、可见性过滤器选择器：:hidden ，:visible<br>(6)、属性过滤器选择器：[attribute] ，[attribute=value] ，[attribute!=value] ，[attribute^=value] ，[attribute$=value] ，[attribute*=value]<br>(7)、子元素过滤器选择器：:nth-child ，:first-child ，:last-child ，:only-child<br>(8)、表单选择器： :input ，:text ，:password ，:radio ，:checkbox ，:submit 等<br>(9)、表单过滤器选择器：:enabled ，:disabled ，:checked ，:selected</p>
+<p>另外可参考：<br><a href="https://www.cnblogs.com/onlys/articles/jQuery.html" target="_blank" rel="noopener">jQuery选择器总结</a></p>
+<h2 id="2-如何判断函数返回值是什么类型"><a href="#2-如何判断函数返回值是什么类型" class="headerlink" title="2.如何判断函数返回值是什么类型"></a>2.如何判断函数返回值是什么类型</h2><p>JavaScript 中 typeof 和 instanceof 常用来判断一个变量是否为空，或者是什么类型的。<br>typeof的定义和用法：返回值是一个字符串，用来说明变量的数据类型。<br>细节：<br>(1)、typeof 一般只能返回如下几个结果：number,boolean,string,function,object,undefined。<br>(2)、typeof 来获取一个变量是否存在，如 if(typeof a!=”undefined”){alert(“ok”)}，而不要去使用 if(a) 因为如果 a 不存在（未声明）则会出错。<br>(3)、对于 Array,Null 等特殊对象使用 typeof 一律返回 object，这正是 typeof 的局限性。<br>Instanceof定义和用法：instanceof 用于判断一个变量是否属于某个对象的实例。<br>实例演示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a instanceof b?alert(<span class="string">"true"</span>):alert(<span class="string">"false"</span>); //a是b的实例？真:假</span><br><span class="line">var a = new Array(); </span><br><span class="line">alert(a instanceof Array);  // <span class="literal">true</span></span><br><span class="line">alert(a instanceof Object)  // <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>如上，会返回 true，同时 alert(a instanceof Object) 也会返回 true;这是因为 Array 是 object 的子类。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">test</span></span>()&#123;&#125;;</span><br><span class="line">var a = new <span class="built_in">test</span>();</span><br><span class="line">alert(a instanceof <span class="built_in">test</span>)   // <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>细节：<br>(1)、如下，得到的结果为‘N’,这里的 instanceof 测试的 object 是指 js 语法中的 object，不是指 dom 模型对象。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (window instanceof Object)&#123; alert(<span class="string">'Y'</span>)&#125; <span class="keyword">else</span> &#123;  alert(<span class="string">'N'</span>);&#125;  // <span class="string">'N'</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-CSS的优先级"><a href="#3-CSS的优先级" class="headerlink" title="3.CSS的优先级"></a>3.CSS的优先级</h2><h4 id="按照优先规则来确定"><a href="#按照优先规则来确定" class="headerlink" title="按照优先规则来确定"></a>按照优先规则来确定</h4><ul>
+<li><p>CSS 优先规则1： 最近的祖先样式比其他祖先样式优先级高。</p>
+</li>
+<li><p>CSS 优先规则2：”直接样式”比”祖先样式”优先级高。</p>
+</li>
+<li><p>CSS 优先规则3：优先级关系：内联样式 &gt; ID 选择器 &gt; 类选择器 = 属性选择器 = 伪类选择器 &gt; 标签选择器 = 伪元素选择器<br>css选择器<br>ID 选择器， 如 #id{}<br>类选择器， 如 .class{}<br>属性选择器， 如 a[href=”segmentfault.com”]{}<br>伪类选择器， 如 :hover{}<br>伪元素选择器， 如 ::before{}<br>标签选择器， 如 span{}<br>通配选择器， 如 *{}</p>
+</li>
+<li><p>CSS 优先规则4：计算选择符中 ID 选择器的个数（a），计算选择符中类选择器、属性选择器以及伪类选择器的个数之和（b），计算选择符中标签选择器和伪元素选择器的个数之和（c）。按 a、b、c 的顺序依次比较大小，大的则优先级高，相等则比较下一个。若最后两个的选择符中 a、b、c 都相等，则按照”就近原则”来判断。@import 语句必须出现在内部样式之前，否则文件引入无效。</p>
+</li>
+<li><p>CSS 优先规则5：属性后插有 !important 的属性拥有最高优先级。若同时插有 !important，则再利用规则 3、4 判断优先级。</p>
+</li>
+</ul>
+<h4 id="直接计算权值"><a href="#直接计算权值" class="headerlink" title="直接计算权值"></a>直接计算权值</h4><p>选择器的特殊性值表述为4个部分，用0,0,0,0表示。</p>
+<ul>
+<li>ID选择器的特殊性值，加0,1,0,0。</li>
+<li>类选择器、属性选择器或伪类，加0,0,1,0。</li>
+<li>元素和伪元素，加0,0,0,1。</li>
+<li>通配选择器*对特殊性没有贡献，即0,0,0,0。</li>
+<li>最后比较特殊的一个标志!important（权重），它没有特殊性值，但它的优先级是最高的，为了方便记忆，可以认为它的特殊性值为1,0,0,0,0。</li>
+</ul>
+<p>参考：<br><a href="https://www.cnblogs.com/wangmeijian/p/4207433.html" target="_blank" rel="noopener">css优先级计算规则</a><br><a href="http://www.runoob.com/w3cnote/css-style-priority.html" target="_blank" rel="noopener">CSS 样式优先级</a></p>
+<h2 id="4-AJAX工作流程"><a href="#4-AJAX工作流程" class="headerlink" title="4.AJAX工作流程"></a>4.AJAX工作流程</h2><p>实现一个AJAX异步调用和局部刷新,通常需要以下几个步骤:</p>
+<ul>
+<li>创建XMLHttpRequest对象,也就是创建一个异步调用对象.</li>
+<li>创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息.</li>
+<li>设置响应HTTP请求状态变化的函数.</li>
+<li>发送HTTP请求.</li>
+<li>获取异步调用返回的数据.</li>
+<li>使用JavaScript和DOM实现局部刷新.</li>
+</ul>
+<h2 id="5-百度地图中调用经纬度的方法名字"><a href="#5-百度地图中调用经纬度的方法名字" class="headerlink" title="5.百度地图中调用经纬度的方法名字"></a>5.百度地图中调用经纬度的方法名字</h2><h2 id="6-bootstrap里面的table-list"><a href="#6-bootstrap里面的table-list" class="headerlink" title="6.bootstrap里面的table-list"></a>6.bootstrap里面的table-list</h2><h2 id="5-Axure如何给按钮绑定事件"><a href="#5-Axure如何给按钮绑定事件" class="headerlink" title="5.Axure如何给按钮绑定事件"></a>5.Axure如何给按钮绑定事件</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/gTing.github.io/2019/03/21/3-21面试题/" rel="next" title="3.21面试题">
+                <i class="fa fa-chevron-left"></i> 3.21面试题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://i01piccdn.sogoucdn.com/0eab9fda0dd2de62"
+                alt="gTing" />
+            
+              <p class="site-author-name" itemprop="name">gTing</p>
+              <p class="site-description motion-element" itemprop="description">立德立言，无问西东</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/gTing.github.io/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/gTing.github.io/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-JQuery的选择器"><span class="nav-number">1.</span> <span class="nav-text">1.JQuery的选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何判断函数返回值是什么类型"><span class="nav-number">2.</span> <span class="nav-text">2.如何判断函数返回值是什么类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-CSS的优先级"><span class="nav-number">3.</span> <span class="nav-text">3.CSS的优先级</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#按照优先规则来确定"><span class="nav-number">3.0.1.</span> <span class="nav-text">按照优先规则来确定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#直接计算权值"><span class="nav-number">3.0.2.</span> <span class="nav-text">直接计算权值</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-AJAX工作流程"><span class="nav-number">4.</span> <span class="nav-text">4.AJAX工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-百度地图中调用经纬度的方法名字"><span class="nav-number">5.</span> <span class="nav-text">5.百度地图中调用经纬度的方法名字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-bootstrap里面的table-list"><span class="nav-number">6.</span> <span class="nav-text">6.bootstrap里面的table-list</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Axure如何给按钮绑定事件"><span class="nav-number">7.</span> <span class="nav-text">5.Axure如何给按钮绑定事件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gTing</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/gTing.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/gTing.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/gTing.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/gTing.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/gTing.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/gTing.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/gTing.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/gTing.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/gTing.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/gTing.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/gTing.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  
+</body>
+</html>
