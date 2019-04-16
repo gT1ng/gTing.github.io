@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans（中文）">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/gTing.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/gTing.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/gTing.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/gTing.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/gTing.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/gTing.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/gTing.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/gTing.github.io/atom.xml" title="gTing's blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="1.关于MosquittoMosquitto是MQTT协议的一种服务器MQTT是一个基于TCP的发布订阅协议，设计的初始目的是为了极有限的内存设备和网络带宽很低的网络不可靠的通信，非常适合物联网通信。 MQTT消息的QOSMQTT支持三种QOS等级： QoS 0：“最多一次”，消息发布完全依赖底层 TCP/IP 网络。分发的消息可能丢失或重复。例如，这个等级可用于环境传感器数据，单次的数据丢失没关">
+<meta name="keywords" content="前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mosquitto使用和其他">
+<meta property="og:url" content="https://gt1ng.github.io/gTing.github.io/2019/04/15/Mosquitto使用和其他/index.html">
+<meta property="og:site_name" content="gTing&#39;s blog">
+<meta property="og:description" content="1.关于MosquittoMosquitto是MQTT协议的一种服务器MQTT是一个基于TCP的发布订阅协议，设计的初始目的是为了极有限的内存设备和网络带宽很低的网络不可靠的通信，非常适合物联网通信。 MQTT消息的QOSMQTT支持三种QOS等级： QoS 0：“最多一次”，消息发布完全依赖底层 TCP/IP 网络。分发的消息可能丢失或重复。例如，这个等级可用于环境传感器数据，单次的数据丢失没关">
+<meta property="og:locale" content="zh-Hans（中文）">
+<meta property="og:updated_time" content="2019-04-16T02:24:51.454Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mosquitto使用和其他">
+<meta name="twitter:description" content="1.关于MosquittoMosquitto是MQTT协议的一种服务器MQTT是一个基于TCP的发布订阅协议，设计的初始目的是为了极有限的内存设备和网络带宽很低的网络不可靠的通信，非常适合物联网通信。 MQTT消息的QOSMQTT支持三种QOS等级： QoS 0：“最多一次”，消息发布完全依赖底层 TCP/IP 网络。分发的消息可能丢失或重复。例如，这个等级可用于环境传感器数据，单次的数据丢失没关">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/gTing.github.io/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://gt1ng.github.io/gTing.github.io/2019/04/15/Mosquitto使用和其他/"/>
+
+
+
+
+
+  <title>Mosquitto使用和其他 | gTing's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans（中文）">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/gTing.github.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">gTing's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">2018 on the way</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/gTing.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/gTing.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gt1ng.github.io/gTing.github.io/gTing.github.io/2019/04/15/Mosquitto使用和其他/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gTing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://i01piccdn.sogoucdn.com/0eab9fda0dd2de62">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gTing's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Mosquitto使用和其他</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-15T08:54:45+08:00">
+                2019-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-关于Mosquitto"><a href="#1-关于Mosquitto" class="headerlink" title="1.关于Mosquitto"></a>1.关于Mosquitto</h2><p><a href="https://baijiahao.baidu.com/s?id=1608411516249221334&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">Mosquitto是MQTT协议的一种服务器</a><br>MQTT是一个基于TCP的发布订阅协议，设计的初始目的是为了极有限的内存设备和网络带宽很低的网络不可靠的通信，非常适合物联网通信。</p>
+<h4 id="MQTT消息的QOS"><a href="#MQTT消息的QOS" class="headerlink" title="MQTT消息的QOS"></a>MQTT消息的QOS</h4><p>MQTT支持三种QOS等级：</p>
+<p>QoS 0：“最多一次”，消息发布完全依赖底层 TCP/IP 网络。分发的消息可能丢失或重复。例如，这个等级可用于环境传感器数据，单次的数据丢失没关系，因为不久后还会有第二次发送。</p>
+<p>QoS 1：“至少一次”，确保消息可以到达，但消息可能会重复。</p>
+<p>QoS 2：“只有一次”，确保消息只到达一次。例如，这个等级可用在一个计费系统中，这里如果消息重复或丢失会导致不正确的收费。</p>
+<h4 id="MQTT的消息类型"><a href="#MQTT的消息类型" class="headerlink" title="MQTT的消息类型"></a>MQTT的消息类型</h4><p>1 CONNECT – 连接服务端：客户端到服务端的网络连接建立后， 客户端发送给服务端的第一个报文必须是CONNECT报文</p>
+<p>2 CONNACK – 确认连接请求：服务端发送CONNACK报文响应从客户端收到的CONNECT报文。 服务端发送给客户端的第一个报文必须是CONNACK。如果客户端在合理的时间内没有收到服务端的CONNACK报文， 客户端应该关闭网络连接。合理的时间取决于应用的类型和通信基础设施。</p>
+<p>3 PUBLISH – 发布消息：PUBLISH控制报文是指从客户端向服务端或者服务端向客户端传输一个应用消息。</p>
+<p>4 PUBACK –发布确认：PUBACK报文是对QoS 1等级的PUBLISH报文的响应。</p>
+<p>5 PUBREC – 发布收到（ QoS 2， 第一步）：PUBREC报文是对QoS等级2的PUBLISH报文的响应。 它是QoS 2等级协议交换的第二个报文。</p>
+<p>6 PUBREL – 发布释放（ QoS 2， 第二步）：PUBREL报文是对PUBREC报文的响应。 它是QoS 2等级协议交换的第三个报文。</p>
+<p>7 PUBCOMP – 发布完成（ QoS 2， 第三步）：PUBCOMP报文是对PUBREL报文的响应。 它是QoS 2等级协议交换的第四个也是最后一个报文。</p>
+<p>8 SUBSCRIBE - 订阅主题：客户端向服务端发送SUBSCRIBE报文用于创建一个或多个订阅。 每个订阅注册客户端关心的一个或多个主题。 为了将应用消息转发给与那些订阅匹配的主题， 服务端发送PUBLISH报文给客户端。 SUBSCRIBE报文也（ 为每个订阅） 指定了最大的QoS等级， 服务端根据这个发送应用消息给客户端。</p>
+<p>9 SUBACK – 订阅确认：服务端发送SUBACK报文给客户端， 用于确认它已收到并且正在处理SUBSCRIBE报文。</p>
+<p>10 UNSUBSCRIBE –取消订阅：客户端发送UNSUBSCRIBE报文给服务端， 用于取消订阅主题。</p>
+<p>11 UNSUBACK – 取消订阅确认：服务端发送UNSUBACK报文给客户端用于确认收到UNSUBSCRIBE报文。</p>
+<p>12 PINGREQ – 心跳请求：客户端发送PINGREQ报文给服务端的。 用于：1. 在没有任何其它控制报文从客户端发给服务的时， 告知服务端客户端还活着。2. 请求服务端发送 响应确认它还活着。3. 使用网络以确认网络连接没有断开。</p>
+<p>13 PINGRESP – 心跳响应：服务端发送PINGRESP报文响应客户端的PINGREQ报文。 表示服务端还活着。</p>
+<p>14 DISCONNECT –断开连接：DISCONNECT报文是客户端发给服务端的最后一个控制报文。 表示客户端正常断开连接</p>
+<p>项目中见到的mosquitto函数：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var mosq = new Mosquitto();</span><br><span class="line">mosq.connect(url);//连接</span><br><span class="line">mosq.subscribe(topicTradeAlarm, 0);//订阅主题</span><br><span class="line">mosq.onconnect = <span class="function"><span class="title">function</span></span>()&#123;&#125;</span><br><span class="line">mosq.onmessage()//建立连接</span><br><span class="line">mosq.ondisconnect()//失去连接</span><br><span class="line">mosq.publish()//发布消息</span><br><span class="line">mosq.setuc(<span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-window、document-documentElement和document-body"><a href="#2-window、document-documentElement和document-body" class="headerlink" title="2.window、document.documentElement和document.body"></a>2.window、document.documentElement和document.body</h2><p>$(window).height(); 才是窗口的宽高，而且一直不变<br>document.body.clientHeight，在文档内容有滚动条的时候远大于$(window).height()<br>document.documentElement.clientWidth 获取的可视区域的宽度高度（缩放窗口的时候 值会发生变化）<br>document.body.clientHeight 不会随着窗口变化而变化，当内容大于一屏时 ，该值肯定大于窗口的高度$(window).height()；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">console.log(<span class="string">"window.innerWidth==="</span>+window.innerWidth)</span><br><span class="line">console.log(<span class="string">"document.documentElement.clientWidth==="</span>+document.documentElement.clientWidth)</span><br><span class="line">console.log(<span class="string">"document.body.clientWidth==="</span>+document.body.clientWidth)</span><br><span class="line">输出</span><br><span class="line">window.innerWidth===936</span><br><span class="line">document.documentElement.clientWidth===936</span><br><span class="line">document.body.clientWidth===1920</span><br></pre></td></tr></table></figure>
+<h2 id="3-在前端判断鼠标左右键点击事件"><a href="#3-在前端判断鼠标左右键点击事件" class="headerlink" title="3.在前端判断鼠标左右键点击事件"></a>3.在前端判断鼠标左右键点击事件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">events.button==2//鼠标右键</span><br><span class="line">events.button==0//没有按任何按钮</span><br></pre></td></tr></table></figure>
+<h2 id="4-format"><a href="#4-format" class="headerlink" title="4.format()"></a>4.format()</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">格式化日期函数 string.format()</span><br><span class="line">var now=moment()</span><br><span class="line">console.log(now.format(<span class="string">"YYYY-MM-DD"</span>))</span><br><span class="line">输出：2019-04-16</span><br><span class="line">console.log(now.format(<span class="string">"YYYY-MM-DD HH:mm:ss"</span>))</span><br><span class="line">输出：2019-04-16 09:20:17</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/gTing.github.io/2019/04/04/作业帮前端面试题/" rel="next" title="作业帮前端面试题">
+                <i class="fa fa-chevron-left"></i> 作业帮前端面试题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://i01piccdn.sogoucdn.com/0eab9fda0dd2de62"
+                alt="gTing" />
+            
+              <p class="site-author-name" itemprop="name">gTing</p>
+              <p class="site-description motion-element" itemprop="description">立德立言，无问西东</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/gTing.github.io/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/gTing.github.io/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-关于Mosquitto"><span class="nav-number">1.</span> <span class="nav-text">1.关于Mosquitto</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MQTT消息的QOS"><span class="nav-number">1.0.1.</span> <span class="nav-text">MQTT消息的QOS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MQTT的消息类型"><span class="nav-number">1.0.2.</span> <span class="nav-text">MQTT的消息类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-window、document-documentElement和document-body"><span class="nav-number">2.</span> <span class="nav-text">2.window、document.documentElement和document.body</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-在前端判断鼠标左右键点击事件"><span class="nav-number">3.</span> <span class="nav-text">3.在前端判断鼠标左右键点击事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-format"><span class="nav-number">4.</span> <span class="nav-text">4.format()</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gTing</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/gTing.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/gTing.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/gTing.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/gTing.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/gTing.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/gTing.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/gTing.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/gTing.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/gTing.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/gTing.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/gTing.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  
+</body>
+</html>
