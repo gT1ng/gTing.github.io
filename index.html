@@ -235,6 +235,132 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gt1ng.github.io/gTing.github.io/gTing.github.io/2019/04/16/小程序学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gTing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://i01piccdn.sogoucdn.com/0eab9fda0dd2de62">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gTing's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/gTing.github.io/2019/04/16/小程序学习/" itemprop="url">小程序学习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-16T16:39:48+08:00">
+                2019-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-类的封装与使用"><a href="#1-类的封装与使用" class="headerlink" title="1.类的封装与使用"></a>1.类的封装与使用</h2><p>在小程序中会有一些函数方法会进行反复使用，为了减少代码的冗余度，可以将这些代码封装起来重复利用。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">类的导出：</span><br><span class="line"><span class="built_in">export</span> &#123;model&#125;</span><br><span class="line">类的引用：</span><br><span class="line">import &#123;Model&#125; from <span class="string">'url'</span></span><br><span class="line"><span class="built_in">let</span> model = new Model()</span><br><span class="line">类的继承：</span><br><span class="line">import &#123;Model&#125; from <span class="string">'url'</span></span><br><span class="line">class newModel extends Model &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-给组件绑定一个点击事件，在不同页面调用时触发不同的函数"><a href="#2-给组件绑定一个点击事件，在不同页面调用时触发不同的函数" class="headerlink" title="2.给组件绑定一个点击事件，在不同页面调用时触发不同的函数"></a>2.给组件绑定一个点击事件，在不同页面调用时触发不同的函数</h2><p>组件wxml文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;view <span class="built_in">bind</span>:tap=<span class="string">"onLike"</span> class=<span class="string">"container"</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>组件js文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onLike:<span class="keyword">function</span>(event)&#123;</span><br><span class="line">    this.triggerEvent(<span class="string">'like'</span>,&#123;&#125;,&#123;&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>主页面中监听点击事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;v-like <span class="built_in">bind</span>:like=<span class="string">"onLike"</span> class=<span class="string">"like"</span> like=<span class="string">"&#123;&#123;likeStatus&#125;&#125;"</span> count=<span class="string">"&#123;&#123;likeCount&#125;&#125;"</span>&gt;&lt;/v-like&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-组件间可能会调用一些相同的属性、生命周期函数、数据，这时候可以将重复的部分封装起来，使用behavior"><a href="#3-组件间可能会调用一些相同的属性、生命周期函数、数据，这时候可以将重复的部分封装起来，使用behavior" class="headerlink" title="3.组件间可能会调用一些相同的属性、生命周期函数、数据，这时候可以将重复的部分封装起来，使用behavior"></a>3.组件间可能会调用一些相同的属性、生命周期函数、数据，这时候可以将重复的部分封装起来，使用behavior</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> classicBeh = Behavior(&#123;</span><br><span class="line">    properties: &#123;</span><br><span class="line">        img:String,</span><br><span class="line">        content:String,</span><br><span class="line">        hidden:Boolean</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> &#123;classicBeh&#125;</span><br></pre></td></tr></table></figure>
+<p>使用时引入behavior即可<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import &#123;classicBeh&#125; from <span class="string">'../classic-beh.js'</span></span><br><span class="line">Component(&#123;</span><br><span class="line">  behaviors:[classicBeh],</span><br><span class="line">  properties: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="4-善用缓存"><a href="#4-善用缓存" class="headerlink" title="4.善用缓存"></a>4.善用缓存</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://gt1ng.github.io/gTing.github.io/gTing.github.io/2019/04/15/Mosquitto使用和其他/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -329,7 +455,16 @@
 <h2 id="2-window、document-documentElement和document-body"><a href="#2-window、document-documentElement和document-body" class="headerlink" title="2.window、document.documentElement和document.body"></a>2.window、document.documentElement和document.body</h2><p>$(window).height(); 才是窗口的宽高，而且一直不变<br>document.body.clientHeight，在文档内容有滚动条的时候远大于$(window).height()<br>document.documentElement.clientWidth 获取的可视区域的宽度高度（缩放窗口的时候 值会发生变化）<br>document.body.clientHeight 不会随着窗口变化而变化，当内容大于一屏时 ，该值肯定大于窗口的高度$(window).height()；</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">console.log(<span class="string">"window.innerWidth==="</span>+window.innerWidth)</span><br><span class="line">console.log(<span class="string">"document.documentElement.clientWidth==="</span>+document.documentElement.clientWidth)</span><br><span class="line">console.log(<span class="string">"document.body.clientWidth==="</span>+document.body.clientWidth)</span><br><span class="line">输出</span><br><span class="line">window.innerWidth===936</span><br><span class="line">document.documentElement.clientWidth===936</span><br><span class="line">document.body.clientWidth===1920</span><br></pre></td></tr></table></figure>
 <h2 id="3-在前端判断鼠标左右键点击事件"><a href="#3-在前端判断鼠标左右键点击事件" class="headerlink" title="3.在前端判断鼠标左右键点击事件"></a>3.在前端判断鼠标左右键点击事件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">events.button==2//鼠标右键</span><br><span class="line">events.button==0//没有按任何按钮</span><br></pre></td></tr></table></figure>
-<h2 id="4-format"><a href="#4-format" class="headerlink" title="4.format()"></a>4.format()</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">格式化日期函数 string.format()</span><br><span class="line">var now=moment()</span><br><span class="line">console.log(now.format(<span class="string">"YYYY-MM-DD"</span>))</span><br><span class="line">输出：2019-04-16</span><br><span class="line">console.log(now.format(<span class="string">"YYYY-MM-DD HH:mm:ss"</span>))</span><br><span class="line">输出：2019-04-16 09:20:17</span><br></pre></td></tr></table></figure>
+<h2 id="4-format"><a href="#4-format" class="headerlink" title="4.format()"></a>4.format()</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">格式化日期函数 string.format()</span><br><span class="line">var now=moment()</span><br><span class="line">console.log(now.format(<span class="string">"YYYY-MM-DD"</span>))</span><br><span class="line">输出：2019-04-16</span><br><span class="line">console.log(now.format(<span class="string">"YYYY-MM-DD HH:mm:ss"</span>))</span><br><span class="line">输出：2019-04-16 09:20:17</span><br><span class="line">console.log(now.format(<span class="string">"X"</span>)) //时间戳</span><br><span class="line">输出：1555394984</span><br></pre></td></tr></table></figure>
+<h2 id="5-动画效果的几种方式"><a href="#5-动画效果的几种方式" class="headerlink" title="5.动画效果的几种方式"></a>5.动画效果的几种方式</h2><ol>
+<li><p>transition</p>
+</li>
+<li><p>jQuery的animate函数</p>
+</li>
+</ol>
+<p>该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。</p>
+<p>只有数字值可创建动画（比如 “margin:30px”）。字符串值无法创建动画（比如 “background-color:red”）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(selector).animate(styles,options)</span><br><span class="line">$(<span class="string">"#box"</span>).animate(&#123;height:<span class="string">"300px"</span>&#125;,300);</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1061,7 +1196,7 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>这些内容只是根据我在这一年学习前端的过程中对前段一些知识的理解，再结合看到的一些招聘信息总结出来的现在企业对前端工程师的一些基础的要求，如果有错误的话可以QQ联系我指出。感谢。<br>参考：<br><a href="web标准与HTML语义化">web标准与HTML语义化</a><br><a href="https://www.cnblogs.com/dolphinX/p/3311588.html" target="_blank" rel="noopener">Web语义化</a><br><a href="https://blog.csdn.net/qq_19318067/article/details/53939230" target="_blank" rel="noopener">前端开发的模块化和组件化的定义，以及两者的关系？</a><br><a href="https://baike.baidu.com/item/W3C%E6%A0%87%E5%87%86/8367679" target="_blank" rel="noopener">W3C标准</a></p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p><a href="web标准与HTML语义化">web标准与HTML语义化</a><br><a href="https://www.cnblogs.com/dolphinX/p/3311588.html" target="_blank" rel="noopener">Web语义化</a><br><a href="https://blog.csdn.net/qq_19318067/article/details/53939230" target="_blank" rel="noopener">前端开发的模块化和组件化的定义，以及两者的关系？</a><br><a href="https://baike.baidu.com/item/W3C%E6%A0%87%E5%87%86/8367679" target="_blank" rel="noopener">W3C标准</a></p>
 
           
         
@@ -1278,7 +1413,7 @@
               
                 <a href="/gTing.github.io/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

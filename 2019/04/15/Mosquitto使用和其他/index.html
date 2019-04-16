@@ -73,8 +73,6 @@
 
 
 
-  
-
 
   <link rel="alternate" href="/gTing.github.io/atom.xml" title="gTing's blog" type="application/atom+xml" />
 
@@ -91,7 +89,7 @@
 <meta property="og:site_name" content="gTing&#39;s blog">
 <meta property="og:description" content="1.关于MosquittoMosquitto是MQTT协议的一种服务器MQTT是一个基于TCP的发布订阅协议，设计的初始目的是为了极有限的内存设备和网络带宽很低的网络不可靠的通信，非常适合物联网通信。 MQTT消息的QOSMQTT支持三种QOS等级： QoS 0：“最多一次”，消息发布完全依赖底层 TCP/IP 网络。分发的消息可能丢失或重复。例如，这个等级可用于环境传感器数据，单次的数据丢失没关">
 <meta property="og:locale" content="zh-Hans（中文）">
-<meta property="og:updated_time" content="2019-04-16T02:24:51.454Z">
+<meta property="og:updated_time" content="2019-04-16T08:35:14.057Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mosquitto使用和其他">
 <meta name="twitter:description" content="1.关于MosquittoMosquitto是MQTT协议的一种服务器MQTT是一个基于TCP的发布订阅协议，设计的初始目的是为了极有限的内存设备和网络带宽很低的网络不可靠的通信，非常适合物联网通信。 MQTT消息的QOSMQTT支持三种QOS等级： QoS 0：“最多一次”，消息发布完全依赖底层 TCP/IP 网络。分发的消息可能丢失或重复。例如，这个等级可用于环境传感器数据，单次的数据丢失没关">
@@ -327,7 +325,16 @@
 <h2 id="2-window、document-documentElement和document-body"><a href="#2-window、document-documentElement和document-body" class="headerlink" title="2.window、document.documentElement和document.body"></a>2.window、document.documentElement和document.body</h2><p>$(window).height(); 才是窗口的宽高，而且一直不变<br>document.body.clientHeight，在文档内容有滚动条的时候远大于$(window).height()<br>document.documentElement.clientWidth 获取的可视区域的宽度高度（缩放窗口的时候 值会发生变化）<br>document.body.clientHeight 不会随着窗口变化而变化，当内容大于一屏时 ，该值肯定大于窗口的高度$(window).height()；</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">console.log(<span class="string">"window.innerWidth==="</span>+window.innerWidth)</span><br><span class="line">console.log(<span class="string">"document.documentElement.clientWidth==="</span>+document.documentElement.clientWidth)</span><br><span class="line">console.log(<span class="string">"document.body.clientWidth==="</span>+document.body.clientWidth)</span><br><span class="line">输出</span><br><span class="line">window.innerWidth===936</span><br><span class="line">document.documentElement.clientWidth===936</span><br><span class="line">document.body.clientWidth===1920</span><br></pre></td></tr></table></figure>
 <h2 id="3-在前端判断鼠标左右键点击事件"><a href="#3-在前端判断鼠标左右键点击事件" class="headerlink" title="3.在前端判断鼠标左右键点击事件"></a>3.在前端判断鼠标左右键点击事件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">events.button==2//鼠标右键</span><br><span class="line">events.button==0//没有按任何按钮</span><br></pre></td></tr></table></figure>
-<h2 id="4-format"><a href="#4-format" class="headerlink" title="4.format()"></a>4.format()</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">格式化日期函数 string.format()</span><br><span class="line">var now=moment()</span><br><span class="line">console.log(now.format(<span class="string">"YYYY-MM-DD"</span>))</span><br><span class="line">输出：2019-04-16</span><br><span class="line">console.log(now.format(<span class="string">"YYYY-MM-DD HH:mm:ss"</span>))</span><br><span class="line">输出：2019-04-16 09:20:17</span><br></pre></td></tr></table></figure>
+<h2 id="4-format"><a href="#4-format" class="headerlink" title="4.format()"></a>4.format()</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">格式化日期函数 string.format()</span><br><span class="line">var now=moment()</span><br><span class="line">console.log(now.format(<span class="string">"YYYY-MM-DD"</span>))</span><br><span class="line">输出：2019-04-16</span><br><span class="line">console.log(now.format(<span class="string">"YYYY-MM-DD HH:mm:ss"</span>))</span><br><span class="line">输出：2019-04-16 09:20:17</span><br><span class="line">console.log(now.format(<span class="string">"X"</span>)) //时间戳</span><br><span class="line">输出：1555394984</span><br></pre></td></tr></table></figure>
+<h2 id="5-动画效果的几种方式"><a href="#5-动画效果的几种方式" class="headerlink" title="5.动画效果的几种方式"></a>5.动画效果的几种方式</h2><ol>
+<li><p>transition</p>
+</li>
+<li><p>jQuery的animate函数</p>
+</li>
+</ol>
+<p>该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。</p>
+<p>只有数字值可创建动画（比如 “margin:30px”）。字符串值无法创建动画（比如 “background-color:red”）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(selector).animate(styles,options)</span><br><span class="line">$(<span class="string">"#box"</span>).animate(&#123;height:<span class="string">"300px"</span>&#125;,300);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -361,6 +368,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/gTing.github.io/2019/04/16/小程序学习/" rel="prev" title="小程序学习">
+                小程序学习 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -441,7 +452,7 @@
               
                 <a href="/gTing.github.io/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -494,7 +505,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-关于Mosquitto"><span class="nav-number">1.</span> <span class="nav-text">1.关于Mosquitto</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MQTT消息的QOS"><span class="nav-number">1.0.1.</span> <span class="nav-text">MQTT消息的QOS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MQTT的消息类型"><span class="nav-number">1.0.2.</span> <span class="nav-text">MQTT的消息类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-window、document-documentElement和document-body"><span class="nav-number">2.</span> <span class="nav-text">2.window、document.documentElement和document.body</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-在前端判断鼠标左右键点击事件"><span class="nav-number">3.</span> <span class="nav-text">3.在前端判断鼠标左右键点击事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-format"><span class="nav-number">4.</span> <span class="nav-text">4.format()</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-关于Mosquitto"><span class="nav-number">1.</span> <span class="nav-text">1.关于Mosquitto</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MQTT消息的QOS"><span class="nav-number">1.0.1.</span> <span class="nav-text">MQTT消息的QOS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MQTT的消息类型"><span class="nav-number">1.0.2.</span> <span class="nav-text">MQTT的消息类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-window、document-documentElement和document-body"><span class="nav-number">2.</span> <span class="nav-text">2.window、document.documentElement和document.body</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-在前端判断鼠标左右键点击事件"><span class="nav-number">3.</span> <span class="nav-text">3.在前端判断鼠标左右键点击事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-format"><span class="nav-number">4.</span> <span class="nav-text">4.format()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-动画效果的几种方式"><span class="nav-number">5.</span> <span class="nav-text">5.动画效果的几种方式</span></a></li></ol></div>
             
 
           </div>
