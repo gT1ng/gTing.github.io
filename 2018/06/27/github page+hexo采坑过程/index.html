@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans（中文）">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -88,8 +88,8 @@
 <meta property="og:url" content="https://gt1ng.github.io/gTing.github.io/2018/06/27/github page+hexo采坑过程/index.html">
 <meta property="og:site_name" content="gTing&#39;s blog">
 <meta property="og:description" content="前言一直都很想有一个个人博客，但是无从下手。突然有一天看到了一篇教程——我是如何利用Github Pages搭建起我的博客，细数一路的坑,然后照着这篇教程开始动手。虽然教程中作者已经讲到了自己所踩的坑，但是不可避免的自己还是碰到了很多问题。 踩过的坑1. 安装主题安装主题要在git bash中输入 1$ git clone https://github.com/litten/hexo-theme-">
-<meta property="og:locale" content="zh-Hans（中文）">
-<meta property="og:updated_time" content="2018-06-27T08:32:21.093Z">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-17T02:53:52.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github+hexo的踩坑之路">
 <meta name="twitter:description" content="前言一直都很想有一个个人博客，但是无从下手。突然有一天看到了一篇教程——我是如何利用Github Pages搭建起我的博客，细数一路的坑,然后照着这篇教程开始动手。虽然教程中作者已经讲到了自己所踩的坑，但是不可避免的自己还是碰到了很多问题。 踩过的坑1. 安装主题安装主题要在git bash中输入 1$ git clone https://github.com/litten/hexo-theme-">
@@ -108,7 +108,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -140,7 +140,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans（中文）">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -163,7 +163,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">2018 on the way</p>
+        <p class="site-subtitle">2019 on the way</p>
       
   </div>
 
@@ -188,7 +188,37 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/gTing.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/gTing.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/gTing.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -198,7 +228,17 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/gTing.github.io/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
           </a>
         </li>
       
@@ -262,9 +302,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-27T10:25:01+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-27T10:25:01+08:00">
                 2018-06-27
               </time>
             
@@ -313,13 +353,23 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url: https://gt1ng.github.io/gTing.github.io/</span><br><span class="line">root: /gTing.github.io</span><br></pre></td></tr></table></figure>
 <p>修改保存然后执行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g //生成静态文件</span><br><span class="line">$ hexo d //部署到远端服务器</span><br></pre></td></tr></table></figure>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>这是第一次用自己搭建的博客，也是第一次用标记语言编辑，最后的最后，希望每天都能接触到新东西<br>标记语言参考——<a href="https://www.jianshu.com/p/1e402922ee32/" target="_blank" rel="noopener">Markdown——入门指南</a><br>next主题参考<a href="https://blog.csdn.net/qsdsn/article/details/77946677" target="_blank" rel="noopener">Hexo设置主题以及Next主题个性设置</a></p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>这是第一次用自己搭建的博客，也是第一次用标记语言编辑，最后的最后，希望每天都能接触到新东西<br>标记语言参考——<a href="https://www.jianshu.com/p/1e402922ee32/" target="_blank" rel="noopener">Markdown——入门指南</a><br>next主题参考<a href="https://blog.csdn.net/qsdsn/article/details/77946677" target="_blank" rel="noopener">Hexo设置主题以及Next主题个性设置</a><br><a href="https://www.jianshu.com/p/9f0e90cc32c2" target="_blank" rel="noopener">next主题配置</a><br><a href="https://blog.csdn.net/panchao888888/article/details/80666352" target="_blank" rel="noopener">Hexo博客NexT主题终极配置</a></p>
 
       
     </div>
     
     
     
+
+    <div>
+      
+      <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+</div>
+      
+    </div>
 
     
 
@@ -331,7 +381,7 @@
       
         <div class="post-tags">
           
-            <a href="/gTing.github.io/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/gTing.github.io/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
           
         </div>
       
@@ -406,10 +456,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            站点概览
           </li>
         </ul>
       
@@ -434,7 +484,7 @@
                 <a href="/gTing.github.io/archives/">
               
                   <span class="site-state-item-count">8</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -445,10 +495,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">tags</span>
-                
+                <a href="/gTing.github.io/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
               </div>
             
 
@@ -516,7 +566,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -524,7 +574,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
@@ -571,6 +621,8 @@
   
 
 
+  
+
 
 
 
@@ -609,6 +661,11 @@
   
   
     <script type="text/javascript" src="/gTing.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/gTing.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -692,6 +749,8 @@
   
 
 
+  
+  <script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
 </body>
 </html>

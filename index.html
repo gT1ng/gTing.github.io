@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans（中文）">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -88,7 +88,7 @@
 <meta property="og:url" content="https://gt1ng.github.io/gTing.github.io/index.html">
 <meta property="og:site_name" content="gTing&#39;s blog">
 <meta property="og:description" content="立德立言，无问西东">
-<meta property="og:locale" content="zh-Hans（中文）">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gTing&#39;s blog">
 <meta name="twitter:description" content="立德立言，无问西东">
@@ -107,7 +107,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -139,7 +139,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans（中文）">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -163,7 +163,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">2018 on the way</p>
+        <p class="site-subtitle">2019 on the way</p>
       
   </div>
 
@@ -188,7 +188,37 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/gTing.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/gTing.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/gTing.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -198,7 +228,17 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/gTing.github.io/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
           </a>
         </li>
       
@@ -264,9 +304,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-16T16:39:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-16T16:39:48+08:00">
                 2019-04-16
               </time>
             
@@ -305,22 +345,25 @@
 
       
         
-          
-            <h2 id="1-类的封装与使用"><a href="#1-类的封装与使用" class="headerlink" title="1.类的封装与使用"></a>1.类的封装与使用</h2><p>在小程序中会有一些函数方法会进行反复使用，为了减少代码的冗余度，可以将这些代码封装起来重复利用。</p>
+          <h2 id="1-类的封装与使用"><a href="#1-类的封装与使用" class="headerlink" title="1.类的封装与使用"></a>1.类的封装与使用</h2><p>在小程序中会有一些函数方法会进行反复使用，为了减少代码的冗余度，可以将这些代码封装起来重复利用。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">类的导出：</span><br><span class="line"><span class="built_in">export</span> &#123;model&#125;</span><br><span class="line">类的引用：</span><br><span class="line">import &#123;Model&#125; from <span class="string">'url'</span></span><br><span class="line"><span class="built_in">let</span> model = new Model()</span><br><span class="line">类的继承：</span><br><span class="line">import &#123;Model&#125; from <span class="string">'url'</span></span><br><span class="line">class newModel extends Model &#123;&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-给组件绑定一个点击事件，在不同页面调用时触发不同的函数"><a href="#2-给组件绑定一个点击事件，在不同页面调用时触发不同的函数" class="headerlink" title="2.给组件绑定一个点击事件，在不同页面调用时触发不同的函数"></a>2.给组件绑定一个点击事件，在不同页面调用时触发不同的函数</h2><p>组件wxml文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;view <span class="built_in">bind</span>:tap=<span class="string">"onLike"</span> class=<span class="string">"container"</span>&gt;</span><br></pre></td></tr></table></figure></p>
-<p>组件js文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onLike:<span class="keyword">function</span>(event)&#123;</span><br><span class="line">    this.triggerEvent(<span class="string">'like'</span>,&#123;&#125;,&#123;&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>主页面中监听点击事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;v-like <span class="built_in">bind</span>:like=<span class="string">"onLike"</span> class=<span class="string">"like"</span> like=<span class="string">"&#123;&#123;likeStatus&#125;&#125;"</span> count=<span class="string">"&#123;&#123;likeCount&#125;&#125;"</span>&gt;&lt;/v-like&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="3-组件间可能会调用一些相同的属性、生命周期函数、数据，这时候可以将重复的部分封装起来，使用behavior"><a href="#3-组件间可能会调用一些相同的属性、生命周期函数、数据，这时候可以将重复的部分封装起来，使用behavior" class="headerlink" title="3.组件间可能会调用一些相同的属性、生命周期函数、数据，这时候可以将重复的部分封装起来，使用behavior"></a>3.组件间可能会调用一些相同的属性、生命周期函数、数据，这时候可以将重复的部分封装起来，使用behavior</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> classicBeh = Behavior(&#123;</span><br><span class="line">    properties: &#123;</span><br><span class="line">        img:String,</span><br><span class="line">        content:String,</span><br><span class="line">        hidden:Boolean</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> &#123;classicBeh&#125;</span><br></pre></td></tr></table></figure>
-<p>使用时引入behavior即可<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import &#123;classicBeh&#125; from <span class="string">'../classic-beh.js'</span></span><br><span class="line">Component(&#123;</span><br><span class="line">  behaviors:[classicBeh],</span><br><span class="line">  properties: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<h2 id="4-善用缓存"><a href="#4-善用缓存" class="headerlink" title="4.善用缓存"></a>4.善用缓存</h2>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/gTing.github.io/2019/04/16/小程序学习/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
     
     
     
+
+    <div>
+      
+    </div>
 
     
 
@@ -390,9 +433,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-15T08:54:45+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-15T08:54:45+08:00">
                 2019-04-15
               </time>
             
@@ -465,6 +508,24 @@
 <p>该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。</p>
 <p>只有数字值可创建动画（比如 “margin:30px”）。字符串值无法创建动画（比如 “background-color:red”）。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(selector).animate(styles,options)</span><br><span class="line">$(<span class="string">"#box"</span>).animate(&#123;height:<span class="string">"300px"</span>&#125;,300);</span><br></pre></td></tr></table></figure>
+<h2 id="6-MyEclipse中js文件无故报错"><a href="#6-MyEclipse中js文件无故报错" class="headerlink" title="6.MyEclipse中js文件无故报错"></a>6.MyEclipse中js文件无故报错</h2><ul>
+<li><p>报错内容为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Syntax error on token <span class="string">"Invalid Regular Expression Options"</span>, no accurate correction available</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解决办法（亲测可用）：<br>1、选中报错的jquery文件“jquery-1.2.6.min.js”。<br>2、右键选择 MyEclipse–&gt;Exclude From Validation 。<br>3、再右键选择 MyEclipse–&gt;Run Validation 即可。</p>
+</li>
+</ul>
+<p>解决办法参考来源：<a href="http://www.cnblogs.com/java727/p/3325734.html" target="_blank" rel="noopener">http://www.cnblogs.com/java727/p/3325734.html</a></p>
+<h2 id="7-MyEclipse中Java文件报错"><a href="#7-MyEclipse中Java文件报错" class="headerlink" title="7.MyEclipse中Java文件报错"></a>7.MyEclipse中Java文件报错</h2><ul>
+<li><p>报错内容为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Description	Resource Path Location Type Java compiler level does not match the version of the installed Java project facet.	hxEventCenter Unknown Faceted Project Problem (Java Version Mismatch)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原因：<br>有几处的jdk版本不一样，把三处的jdk版本设置成一样的就好了</p>
+</li>
+<li><p>解决办法：<br>1.确定项目中是什么版本的jdk：Window-Preferences-Java-Installed JREs<br>2.设置编译出来的文件使用的格式版本：Window-Preferences-Java Compiler<br>3.设置项目编译版本：右击项目-Properties-Java Compiler<br>4.设置Java文件版本：右击项目-Properties-MyEclipse-Project Facets</p>
+</li>
+</ul>
+<p>解决办法参考来源：<a href="https://jingyan.baidu.com/article/95c9d20da3ec5fec4e756186.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/95c9d20da3ec5fec4e756186.html</a></p>
 
           
         
@@ -473,6 +534,10 @@
     
     
     
+
+    <div>
+      
+    </div>
 
     
 
@@ -542,9 +607,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-04T19:09:44+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-04T19:09:44+08:00">
                 2019-04-04
               </time>
             
@@ -619,6 +684,10 @@
     
     
 
+    <div>
+      
+    </div>
+
     
 
     
@@ -687,9 +756,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-22T11:06:24+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-22T11:06:24+08:00">
                 2019-03-22
               </time>
             
@@ -777,6 +846,10 @@
     
     
 
+    <div>
+      
+    </div>
+
     
 
     
@@ -845,9 +918,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-21T13:35:54+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-21T13:35:54+08:00">
                 2019-03-21
               </time>
             
@@ -920,6 +993,10 @@
     
     
 
+    <div>
+      
+    </div>
+
     
 
     
@@ -988,9 +1065,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-21T13:26:30+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-21T13:26:30+08:00">
                 2019-03-21
               </time>
             
@@ -1047,6 +1124,10 @@
     
     
     
+
+    <div>
+      
+    </div>
 
     
 
@@ -1116,9 +1197,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-01T09:29:51+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-01T09:29:51+08:00">
                 2018-07-01
               </time>
             
@@ -1206,6 +1287,10 @@
     
     
 
+    <div>
+      
+    </div>
+
     
 
     
@@ -1274,9 +1359,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-27T10:25:01+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-27T10:25:01+08:00">
                 2018-06-27
               </time>
             
@@ -1327,7 +1412,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url: https://gt1ng.github.io/gTing.github.io/</span><br><span class="line">root: /gTing.github.io</span><br></pre></td></tr></table></figure>
 <p>修改保存然后执行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g //生成静态文件</span><br><span class="line">$ hexo d //部署到远端服务器</span><br></pre></td></tr></table></figure>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>这是第一次用自己搭建的博客，也是第一次用标记语言编辑，最后的最后，希望每天都能接触到新东西<br>标记语言参考——<a href="https://www.jianshu.com/p/1e402922ee32/" target="_blank" rel="noopener">Markdown——入门指南</a><br>next主题参考<a href="https://blog.csdn.net/qsdsn/article/details/77946677" target="_blank" rel="noopener">Hexo设置主题以及Next主题个性设置</a></p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>这是第一次用自己搭建的博客，也是第一次用标记语言编辑，最后的最后，希望每天都能接触到新东西<br>标记语言参考——<a href="https://www.jianshu.com/p/1e402922ee32/" target="_blank" rel="noopener">Markdown——入门指南</a><br>next主题参考<a href="https://blog.csdn.net/qsdsn/article/details/77946677" target="_blank" rel="noopener">Hexo设置主题以及Next主题个性设置</a><br><a href="https://www.jianshu.com/p/9f0e90cc32c2" target="_blank" rel="noopener">next主题配置</a><br><a href="https://blog.csdn.net/panchao888888/article/details/80666352" target="_blank" rel="noopener">Hexo博客NexT主题终极配置</a></p>
 
           
         
@@ -1336,6 +1421,10 @@
     
     
     
+
+    <div>
+      
+    </div>
 
     
 
@@ -1414,7 +1503,7 @@
                 <a href="/gTing.github.io/archives/">
               
                   <span class="site-state-item-count">8</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -1425,10 +1514,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">tags</span>
-                
+                <a href="/gTing.github.io/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
               </div>
             
 
@@ -1480,7 +1569,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -1488,7 +1577,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
@@ -1535,6 +1624,8 @@
   
 
 
+  
+
 
 
 
@@ -1573,6 +1664,11 @@
   
   
     <script type="text/javascript" src="/gTing.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/gTing.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -1652,6 +1748,8 @@
   
 
 
+  
+  <script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
 </body>
 </html>
